@@ -1,12 +1,14 @@
 import { TextField } from "@mui/material";
 
-export default function NumberInput({ label, value, onChange }) {
+export default function NumberInput({ label, value, error, onChange }) {
   return (
     <TextField
       label={label}
       value={value}
       type="number"
       onChange={(e) => onChange(e.target.value)}
+      error={!!error} 
+      helperText={error}
       slotProps={{
         htmlInput: { min: 1 },
         inputLabel: {

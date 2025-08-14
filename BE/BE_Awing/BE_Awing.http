@@ -1,0 +1,6 @@
+@BE_Awing_HostAddress = http://localhost:5043
+
+GET {{BE_Awing_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

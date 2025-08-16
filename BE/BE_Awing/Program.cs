@@ -5,6 +5,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Bật CORS cho tất cả
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 
 // SQLite DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -23,6 +34,9 @@ builder.Services.AddScoped<TreasureRepository, TreasureRepository>();
 builder.Services.AddScoped<TreasureService, TreasureService>();
 
 var app = builder.Build();
+
+// Sử dụng CORS
+app.UseCors("AllowAll");
 
 // **Tự động tạo DB nếu chưa tồn tại**
 using (var scope = app.Services.CreateScope())

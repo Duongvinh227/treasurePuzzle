@@ -2,6 +2,7 @@
 using BE_Awing.Entity;
 using BE_Awing.Repositories;
 using BE_Awing.Request;
+using BE_Awing.Response;
 
 
 namespace BE_Awing.Services
@@ -14,11 +15,17 @@ namespace BE_Awing.Services
         {
             repository = _repository;
         }
-
-        public async Task<IEnumerable<PuzzleEntity>> GetAllAsync()
+        
+        //save map and treasure info
+        public async void SaveData(TreasureRequest newTreasure)
         {
-            // Logic xử lý có thể thêm ở đây trước khi trả về controller
-            return await repository.GetAllAsync();
+            await repository.SaveData(newTreasure);
+        }
+
+        // Get all treasure history with map details
+        public async Task<IEnumerable<TreasureHistoryResponse>> GetAllHistoryAsync()
+        {
+            return await repository.GetAllHistoryAsync();
         }
     }
 }

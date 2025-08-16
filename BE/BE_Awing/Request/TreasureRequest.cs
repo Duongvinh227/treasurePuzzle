@@ -2,8 +2,16 @@
 {
     public class TreasureRequest
     {
-        public string Name { get; set; } = string.Empty;
-        public string Location { get; set; } = string.Empty;
-        public decimal Value { get; set; }
+
+        public int rowsCount { get; set; } 
+
+        public int columnsCount { get; set; } 
+
+        public int maxChest { get; set; } 
+
+        public double moveCost { get; set; } 
+
+        public string planMoves { get; set; }
+
     }
 }

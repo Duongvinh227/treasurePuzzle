@@ -18,8 +18,10 @@ export default function HistoryDialog({ open, onClose, history }) {
           <ul className="space-y-2">
             {history.map((item, idx) => (
               <li key={idx} className="border p-2 rounded">
-                <div className="font-bold">Time: {item.time}</div>
-                <div>Path: {item.result.map(([x, y]) => `[${x},${y}]`).join(" → ")}</div>
+                <div>| Rows: {item.rowsCount} | Columns: {item.columnsCount} | Max Chests: {item.maxChest} |</div>
+                <div>Path: {JSON.parse(item.moves).map(([x, y]) => `[${x},${y}]`).join(" → ")}</div>
+                <div className="font-bold">MoveCost: {item.moveCost}</div>
+                <div>CreatedAt: {new Date(item.createdAt).toLocaleString()}</div>
               </li>
             ))}
           </ul>

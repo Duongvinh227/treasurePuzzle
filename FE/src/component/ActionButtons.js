@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 const ActionButtons = ({
   n,
   m,
+  p,
   setMatrix,
   handleRun,
   setOpenUserGuideDialog,
@@ -16,7 +17,7 @@ const ActionButtons = ({
       <Button
         variant="outlined"
         onClick={() =>
-          setMatrix(generateRandomMatrix(parseInt(n) || 0, parseInt(m) || 0))
+          setMatrix(generateRandomMatrix(parseInt(n) || 0, parseInt(m) || 0, parseInt(p) || 0))
         }
       >
         Generate Random Matrix
